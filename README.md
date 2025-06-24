@@ -46,7 +46,7 @@ A RESTful API for managing Star Wars characters built with NestJS, TypeScript, a
 
 4. **Seed the database** (optional):
    ```bash
-   curl -X POST http://localhost:3000/characters/seed
+   npm run seed
    ```
 
 ## API Endpoints
@@ -57,7 +57,7 @@ A RESTful API for managing Star Wars characters built with NestJS, TypeScript, a
 - `POST /characters` - Create new character
 - `PATCH /characters/:id` - Update character
 - `DELETE /characters/:id` - Delete character
-- `POST /characters/seed` - Seed database
+
 
 ## API Documentation
 

@@ -201,30 +201,5 @@ describe('CharactersService', () => {
     });
   });
 
-  describe('seed', () => {
-    it('should seed characters when database is empty', async () => {
-      const seedCharacters = Array(7).fill(mockCharacter);
-      mockRepository.count.mockResolvedValue(0);
-      mockRepository.create.mockReturnValue(seedCharacters);
-      mockRepository.save.mockResolvedValue(seedCharacters);
 
-      const result = await service.seed();
-
-      expect(repository.count).toHaveBeenCalled();
-      expect(repository.create).toHaveBeenCalled();
-      expect(repository.save).toHaveBeenCalledWith(seedCharacters);
-      expect(result).toEqual(seedCharacters);
-    });
-
-    it('should not seed when characters already exist', async () => {
-      mockRepository.count.mockResolvedValue(5);
-
-      const result = await service.seed();
-
-      expect(repository.count).toHaveBeenCalled();
-      expect(repository.create).not.toHaveBeenCalled();
-      expect(repository.save).not.toHaveBeenCalled();
-      expect(result).toEqual([]);
-    });
-  });
 }); 

@@ -61,10 +61,5 @@ export class CharactersController {
     return this.charactersService.remove(id);
   }
 
-  @Post('seed')
-  @ApiOperation({ summary: 'Seed database with initial characters' })
-  @ApiResponse({ status: 201, description: 'Database seeded successfully' })
-  seed(): Promise<Character[]> {
-    return this.charactersService.seed();
-  }
+
 } 

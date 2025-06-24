@@ -197,26 +197,7 @@ describe('Characters (e2e)', () => {
     });
   });
 
-  describe('/characters/seed (POST)', () => {
-    it('should seed database with initial characters', () => {
-      return request(app.getHttpServer())
-        .post('/characters/seed')
-        .expect(201)
-        .expect((res) => {
-          expect(Array.isArray(res.body)).toBe(true);
-          expect(res.body.length).toBeGreaterThan(0);
-        });
-    });
 
-    it('should not seed when characters already exist', () => {
-      return request(app.getHttpServer())
-        .post('/characters/seed')
-        .expect(201)
-        .expect((res) => {
-          expect(res.body).toEqual([]);
-        });
-    });
-  });
 
   describe('/characters/:id (DELETE)', () => {
     it('should delete character', () => {

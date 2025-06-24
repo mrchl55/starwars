@@ -82,23 +82,5 @@ export class CharactersService {
     await this.charactersRepository.remove(character);
   }
 
-  async seed(): Promise<Character[]> {
-    const existingCount = await this.charactersRepository.count();
-    if (existingCount > 0) {
-      return [];
-    }
 
-    const seedData = [
-      { name: 'Luke Skywalker', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Tatooine', species: 'Human', affiliation: 'Rebel Alliance' },
-      { name: 'Darth Vader', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Tatooine', species: 'Human', affiliation: 'Galactic Empire' },
-      { name: 'Han Solo', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Corellia', species: 'Human', affiliation: 'Rebel Alliance' },
-      { name: 'Leia Organa', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Alderaan', species: 'Human', affiliation: 'Rebel Alliance' },
-      { name: 'Wilhuff Tarkin', episodes: ['NEWHOPE'] as Episode[], planet: 'Eriadu', species: 'Human', affiliation: 'Galactic Empire' },
-      { name: 'C-3PO', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Tatooine', species: 'Droid', affiliation: 'Rebel Alliance' },
-      { name: 'R2-D2', episodes: ['NEWHOPE', 'EMPIRE', 'JEDI'] as Episode[], planet: 'Naboo', species: 'Droid', affiliation: 'Rebel Alliance' },
-    ];
-
-    const characters = this.charactersRepository.create(seedData);
-    return await this.charactersRepository.save(characters);
-  }
 } 
